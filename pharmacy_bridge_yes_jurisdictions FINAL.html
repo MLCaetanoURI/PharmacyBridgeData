@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 2rem; background: #fff; color: #333; }
+.pb-chart-row { display: flex; align-items: center; margin-bottom: 12px; min-height: 48px; }
+.pb-chart-label { width: 220px; min-width: 220px; text-align: right; padding-right: 16px; font-size: 13px; line-height: 1.35; color: #666; }
+.pb-chart-bar-area { flex: 1; position: relative; height: 42px; display: flex; align-items: center; }
+.pb-chart-bar {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  border-radius: 0 3px 3px 0;
+  min-width: 2px;
+  cursor: pointer;
+  position: relative;
+  transition: opacity 0.15s;
+}
+.pb-chart-bar:hover { opacity: 0.85; }
+.pb-chart-count {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1B1F3B;
+  padding: 0 10px;
+  white-space: nowrap;
+}
+.pb-chart-grid { position: absolute; top: 0; bottom: 0; border-left: 0.5px solid #e8e8e8; pointer-events: none; }
+.pb-chart-axis { display: flex; margin-left: 220px; position: relative; height: 24px; }
+.pb-chart-axis span { position: absolute; font-size: 11px; color: #B4B2A9; transform: translateX(-50%); }
+
+.pb-tooltip {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 0;
+  background: #1B1F3B;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  line-height: 1.6;
+  z-index: 100;
+  min-width: 200px;
+  max-width: 360px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+.pb-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 20px;
+  border: 6px solid transparent;
+  border-top-color: #1B1F3B;
+}
+.pb-tooltip .tt-title {
+  font-weight: 700;
+  margin-bottom: 4px;
+  font-size: 13px;
+  color: #A3DDD9;
+}
+.pb-tooltip .tt-states {
+  letter-spacing: 0.03em;
+  word-spacing: 4px;
+}
+.pb-tooltip .tt-hint {
+  margin-top: 6px;
+  font-size: 11px;
+  color: #8888a0;
+}
+
+.pb-chart-bar:hover .pb-tooltip,
+.pb-chart-bar.active .pb-tooltip { display: block; }
+
+@media (max-width: 600px) {
+  .pb-chart-row { flex-direction: column; align-items: flex-start; min-height: auto; margin-bottom: 16px; }
+  .pb-chart-label { width: 100%; min-width: 0; text-align: left; padding: 0 0 6px 0; }
+  .pb-chart-bar-area { width: 100%; }
+  .pb-tooltip { left: 0; right: auto; max-width: 280px; }
+}
+</style>
+</head>
+<body>
+<div style="max-width: 780px;">
+
+<div style="position: relative;">
+
+<div class="pb-chart-row">
+<div class="pb-chart-label">Pharmacists can prescribe<br>buprenorphine independently*</div>
+<div class="pb-chart-bar-area">
+<div class="pb-chart-grid" style="left: 0%;"></div>
+<div class="pb-chart-grid" style="left: 25%;"></div>
+<div class="pb-chart-grid" style="left: 50%;"></div>
+<div class="pb-chart-grid" style="left: 75%;"></div>
+<div class="pb-chart-grid" style="left: 100%;"></div>
+<div class="pb-chart-bar" style="width: 7.7%; background: #4DBAB2;">
+<span class="pb-chart-count">4</span>
+<div class="pb-tooltip">
+<div class="tt-title">4 jurisdictions</div>
+<div class="tt-states">CA  ID  NV  OR</div>
+<div class="tt-hint">Tap elsewhere to close</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="pb-chart-row">
+<div class="pb-chart-label">Pharmacists can prescribe<br>buprenorphine under a CPA</div>
+<div class="pb-chart-bar-area">
+<div class="pb-chart-grid" style="left: 0%;"></div>
+<div class="pb-chart-grid" style="left: 25%;"></div>
+<div class="pb-chart-grid" style="left: 50%;"></div>
+<div class="pb-chart-grid" style="left: 75%;"></div>
+<div class="pb-chart-grid" style="left: 100%;"></div>
+<div class="pb-chart-bar" style="width: 9.6%; background: #A3DDD9;">
+<span class="pb-chart-count">5</span>
+<div class="pb-tooltip">
+<div class="tt-title">5 jurisdictions</div>
+<div class="tt-states">MT  NC  NM  OH  WA</div>
+<div class="tt-hint">Tap elsewhere to close</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="pb-chart-row">
+<div class="pb-chart-label">Pharmacists can administer<br>buprenorphine under a CPA</div>
+<div class="pb-chart-bar-area">
+<div class="pb-chart-grid" style="left: 0%;"></div>
+<div class="pb-chart-grid" style="left: 25%;"></div>
+<div class="pb-chart-grid" style="left: 50%;"></div>
+<div class="pb-chart-grid" style="left: 75%;"></div>
+<div class="pb-chart-grid" style="left: 100%;"></div>
+<div class="pb-chart-bar" style="width: 19.2%; background: #4DBAB2;">
+<span class="pb-chart-count">10</span>
+<div class="pb-tooltip">
+<div class="tt-title">10 jurisdictions</div>
+<div class="tt-states">AK  CT  ME  MN  MT  NJ  NM  NV  OH  PA</div>
+<div class="tt-hint">Tap elsewhere to close</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="pb-chart-row">
+<div class="pb-chart-label">Pharmacists can administer<br>buprenorphine independently*</div>
+<div class="pb-chart-bar-area">
+<div class="pb-chart-grid" style="left: 0%;"></div>
+<div class="pb-chart-grid" style="left: 25%;"></div>
+<div class="pb-chart-grid" style="left: 50%;"></div>
+<div class="pb-chart-grid" style="left: 75%;"></div>
+<div class="pb-chart-grid" style="left: 100%;"></div>
+<div class="pb-chart-bar" style="width: 51.9%; background: #A3DDD9;">
+<span class="pb-chart-count">27</span>
+<div class="pb-tooltip">
+<div class="tt-title">27 jurisdictions</div>
+<div class="tt-states">AR  CA  CO  GA  HI  IA  ID  IL  KY  MD  ME  MN  MO  NC  ND  NE  NM  NY  OH  OK  OR  PA  RI  TN  UT  WA  WI</div>
+<div class="tt-hint">Tap elsewhere to close</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="pb-chart-row">
+<div class="pb-chart-label">Pharmacists can order or evaluate<br>lab tests under a CPA</div>
+<div class="pb-chart-bar-area">
+<div class="pb-chart-grid" style="left: 0%;"></div>
+<div class="pb-chart-grid" style="left: 25%;"></div>
+<div class="pb-chart-grid" style="left: 50%;"></div>
+<div class="pb-chart-grid" style="left: 75%;"></div>
+<div class="pb-chart-grid" style="left: 100%;"></div>
+<div class="pb-chart-bar" style="width: 57.7%; background: #4DBAB2;">
+<span class="pb-chart-count">30</span>
+<div class="pb-tooltip">
+<div class="tt-title">30 jurisdictions</div>
+<div class="tt-states">AL  AZ  CO  CT  DC  FL  KY  LA  MA  MD  ME  MN  MO  MS  MT  NC  NH  NJ  NM  NV  NY  OH  OR  PA  RI  TN  TX  UT  VA  WV</div>
+<div class="tt-hint">Tap elsewhere to close</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="pb-chart-row">
+<div class="pb-chart-label">Pharmacists can order or evaluate<br>lab tests independently*</div>
+<div class="pb-chart-bar-area">
+<div class="pb-chart-grid" style="left: 0%;"></div>
+<div class="pb-chart-grid" style="left: 25%;"></div>
+<div class="pb-chart-grid" style="left: 50%;"></div>
+<div class="pb-chart-grid" style="left: 75%;"></div>
+<div class="pb-chart-grid" style="left: 100%;"></div>
+<div class="pb-chart-bar" style="width: 65.4%; background: #A3DDD9;">
+<span class="pb-chart-count">34</span>
+<div class="pb-tooltip">
+<div class="tt-title">34 jurisdictions</div>
+<div class="tt-states">AR  CA  CO  CT  DC  DE  FL  GA  HI  IA  ID  IL  MA  MD  MI  MN  NC  ND  NH  NJ  NM  NV  NY  OH  OR  PA  RI  SC  SD  TN  VA  VT  WA  WY</div>
+<div class="tt-hint">Tap elsewhere to close</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="pb-chart-row">
+<div class="pb-chart-label">Pharmacists can provide<br>services via telehealth</div>
+<div class="pb-chart-bar-area">
+<div class="pb-chart-grid" style="left: 0%;"></div>
+<div class="pb-chart-grid" style="left: 25%;"></div>
+<div class="pb-chart-grid" style="left: 50%;"></div>
+<div class="pb-chart-grid" style="left: 75%;"></div>
+<div class="pb-chart-grid" style="left: 100%;"></div>
+<div class="pb-chart-bar" style="width: 84.6%; background: #4DBAB2;">
+<span class="pb-chart-count">44</span>
+<div class="pb-tooltip">
+<div class="tt-title">44 jurisdictions</div>
+<div class="tt-states">AK  AR  AZ  CA  CO  CT  DC  DE  FL  GA  IA  ID  IL  IN  KY  MA  MD  ME  MI  MN  MO  MS  MT  ND  NE  NH  NJ  NM  NV  OH  OK  OR  PA  RI  SC  SD  TN  TX  UT  VA  VT  WA  WI  WV</div>
+<div class="tt-hint">Tap elsewhere to close</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="pb-chart-axis">
+<span style="left: 0%;">0</span>
+<span style="left: 25%;">13</span>
+<span style="left: 50%;">26</span>
+<span style="left: 75%;">39</span>
+<span style="left: 100%;">52</span>
+</div>
+
+</div>
+
+<p style="font-size: 11px; color: #666; margin-top: 12px;">*Independently means that a pharmacist does not need to work with another provider (MD, NP, PA) or have a collaborative practice agreement in place to provide this service.<br>CPA = Collaborative Practice Agreement</p>
+
+<p style="font-size: 11px; color: #B4B2A9; margin-top: 8px;">Jurisdictions where the answer is "yes" or "yes, with limitations." Click or tap a bar to see which jurisdictions. n = 52 (50 states + DC + Puerto Rico). Source: LAPPA report, research current as of October 2024.</p>
+</div>
+
+<script>
+document.querySelectorAll(".pb-chart-bar").forEach(function(bar) {
+  bar.addEventListener("click", function(e) {
+    e.stopPropagation();
+    var wasActive = bar.classList.contains("active");
+    document.querySelectorAll(".pb-chart-bar.active").forEach(function(b) {
+      b.classList.remove("active");
+    });
+    if (!wasActive) {
+      bar.classList.add("active");
+    }
+  });
+});
+
+document.addEventListener("click", function() {
+  document.querySelectorAll(".pb-chart-bar.active").forEach(function(b) {
+    b.classList.remove("active");
+  });
+});
+</script>
+</body>
+</html>
